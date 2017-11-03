@@ -16,11 +16,11 @@ WRKSRC=		${WRKDIR}/${DISTNAME}
 
 USE_LIBTOOL=	yes
 USE_TOOLS+=	aclocal autoheader autoconf automake
+USE_LANGUAGES+=	c
 
-# autogen.sh script also handles configure
-NO_CONFIGURE=	YES	
+NO_BUILD=	YES	
 
-do-build:
+do-configure:
 	(cd ${WRKSRC} && ${SH} autogen.sh --prefix=${PREFIX})
 
 .include "../../mk/bsd.pkg.mk"
